@@ -1,0 +1,2 @@
+//Install Filament
+composer require filament/filament:"^4.0"
