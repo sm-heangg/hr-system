@@ -20,7 +20,7 @@ class EmployeeForm
                     ->required(),
                 TextInput::make('employee_code')
                     ->required(),
-                Select::make('dempartment_id')
+                Select::make('department_id')
                     ->relationship('department', 'name'),
                 Select::make('position_id')
                     ->relationship('position', 'name'),
