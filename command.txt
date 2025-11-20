@@ -21,6 +21,10 @@ php artisan key:generate
 php artisan migrate
 
 //7. create admin user for login
+php artisan shield:super-admin
+type 0 to select admin panel
+
+//8. create admin user for login
 php artisan shield:install
 type 0 to select admin panel
 
