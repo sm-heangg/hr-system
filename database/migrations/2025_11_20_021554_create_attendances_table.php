@@ -20,7 +20,6 @@ return new class extends Migration
             $table->enum('status', ['present', 'absent', 'late', 'leave'])->default('present');
             $table->text('notes')->nullable();
             $table->timestamps();
-            $table->unique(['user_id', 'date']);
         });
     }
 
