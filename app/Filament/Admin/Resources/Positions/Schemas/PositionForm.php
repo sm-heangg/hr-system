@@ -14,7 +14,6 @@ class PositionForm
                 TextInput::make('name')
                     ->required(),
                 TextInput::make('description')
-                    ->required(),
             ]);
     }
 }

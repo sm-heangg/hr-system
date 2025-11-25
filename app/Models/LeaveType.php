@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class LeaveType extends Model
 {
-    protected $fillable = ['name', 'days_per_year', 'is_paid'];
+    protected $fillable = ['name', 'days_per_year', 'is_paid', 'notes'];
 
     protected $casts = [
         'is_paid' => 'boolean',

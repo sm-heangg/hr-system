@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->integer('days_per_year');
             $table->boolean('is_paid')->default(true);
+            $table->text('notes');
             $table->timestamps();
         });
     }

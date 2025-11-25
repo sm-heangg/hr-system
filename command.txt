@@ -28,5 +28,16 @@ type 0 to select admin panel
 php artisan shield:install
 type 0 to select admin panel
 
+//require command for project
 //Install Filament
 composer require filament/filament:"^4.0"
+
+//QR Code Package
+composer require simplesoftwareio/simple-qrcode "~4"
+
+//permission for open camera on phone via browser first install it from microsoft store into your computer first before run command
+ngrok http 8000
+
+
+//for local cron job if employee not scan mark them as absent
+php artisan schedule:work

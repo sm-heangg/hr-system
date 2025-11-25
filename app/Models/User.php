@@ -8,9 +8,10 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Filament\Panel;
+use Filament\Models\Contracts\FilamentUser;
 
-
-class User extends Authenticatable
+class User extends Authenticatable implements FilamentUser
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable, HasRoles;
@@ -55,5 +56,17 @@ class User extends Authenticatable
     public function employee(): HasOne
     {
         return $this->hasOne(Employee::class, 'user_id', 'id');
+    }
+    public function canAccessPanel(Panel $panel): bool
+    {
+        return match ($panel->getId()) {
+            // Only super_admin can open /admin panel
+            'admin' => $this->hasRole('super_admin'),
+
+            // Employee panel: employee or super_admin
+            'employee' => $this->hasAnyRole(['employee', 'super_admin']),
+
+            default => false,
+        };
     }
 }

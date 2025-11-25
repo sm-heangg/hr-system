@@ -11,7 +11,6 @@ use App\Models\LeaveRequest;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use UnitEnum;
 
@@ -21,6 +20,27 @@ class LeaveRequestResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-arrow-top-right-on-square';
     protected static string|UnitEnum|null $navigationGroup = 'Leaves';
+
+    /**
+     * Show a badge with the number of pending requests.
+     * Returns null when there are none (badge hidden).
+     */
+    public static function getNavigationBadge(): ?string
+    {
+        $count = LeaveRequest::where('status', 'pending')->count();
+
+        return $count > 0 ? (string) $count : null;
+    }
+
+    /**
+     * Color of the navigation badge.
+     */
+    public static function getNavigationBadgeColor(): ?string
+    {
+        // 'danger' = red pill
+        return 'danger';
+    }
+
     public static function form(Schema $schema): Schema
     {
         return LeaveRequestForm::configure($schema);
@@ -34,16 +54,16 @@ class LeaveRequestResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            // no relations yet
         ];
     }
 
     public static function getPages(): array
     {
         return [
-            'index' => ListLeaveRequests::route('/'),
+            'index'  => ListLeaveRequests::route('/'),
             'create' => CreateLeaveRequest::route('/create'),
-            'edit' => EditLeaveRequest::route('/{record}/edit'),
+            'edit'   => EditLeaveRequest::route('/{record}/edit'),
         ];
     }
 }

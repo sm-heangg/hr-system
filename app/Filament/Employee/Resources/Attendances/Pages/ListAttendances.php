@@ -4,6 +4,7 @@ namespace App\Filament\Employee\Resources\Attendances\Pages;
 
 use App\Filament\Employee\Resources\Attendances\AttendanceResource;
 use Filament\Actions\CreateAction;
+use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
 
 class ListAttendances extends ListRecords
@@ -12,8 +13,14 @@ class ListAttendances extends ListRecords
 
     protected function getHeaderActions(): array
     {
+        // return [
+        //     CreateAction::make(),
+        // ];
         return [
-            CreateAction::make(),
+            Actions\Action::make('scanCheckIn')
+                ->label('QR Check-in')
+                ->icon('heroicon-o-qr-code')
+                ->url(ScanCheckIn::getUrl()),
         ];
     }
 }

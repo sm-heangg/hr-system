@@ -13,13 +13,32 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use UnitEnum;
 
 class UserResource extends Resource
 {
     protected static ?string $model = User::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-user-circle';
+    protected static string|UnitEnum|null $navigationGroup = 'Settings';
+    public static function getNavigationBadge(): ?string
+    {
+        $count = User::query()->count();
 
+        // If you *always* want to show it, even 0, just:
+        return (string) $count;
+
+        // If you want to hide badge when 0, use:
+        // return $count > 0 ? (string) $count : null;
+    }
+
+    /**
+     * Optional: color of the badge.
+     */
+    public static function getNavigationBadgeColor(): ?string
+    {
+        return 'info'; // blue badge (you can use 'primary', 'success', etc.)
+    }
     public static function form(Schema $schema): Schema
     {
         return UserForm::configure($schema);

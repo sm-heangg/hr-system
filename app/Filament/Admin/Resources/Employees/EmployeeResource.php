@@ -11,7 +11,6 @@ use App\Models\Employee;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 
 class EmployeeResource extends Resource
@@ -19,6 +18,28 @@ class EmployeeResource extends Resource
     protected static ?string $model = Employee::class;
 
     protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-user-group';
+
+    /**
+     * Show total number of employees as a badge.
+     */
+    public static function getNavigationBadge(): ?string
+    {
+        $count = Employee::query()->count();
+
+        // If you *always* want to show it, even 0, just:
+        return (string) $count;
+
+        // If you want to hide badge when 0, use:
+        // return $count > 0 ? (string) $count : null;
+    }
+
+    /**
+     * Optional: color of the badge.
+     */
+    public static function getNavigationBadgeColor(): ?string
+    {
+        return 'info'; // blue badge (you can use 'primary', 'success', etc.)
+    }
 
     public static function form(Schema $schema): Schema
     {
@@ -40,9 +61,9 @@ class EmployeeResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => ListEmployees::route('/'),
+            'index'  => ListEmployees::route('/'),
             'create' => CreateEmployee::route('/create'),
-            'edit' => EditEmployee::route('/{record}/edit'),
+            'edit'   => EditEmployee::route('/{record}/edit'),
         ];
     }
 }

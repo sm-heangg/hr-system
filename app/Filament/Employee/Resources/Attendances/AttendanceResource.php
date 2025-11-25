@@ -5,6 +5,8 @@ namespace App\Filament\Employee\Resources\Attendances;
 use App\Filament\Employee\Resources\Attendances\Pages\CreateAttendance;
 use App\Filament\Employee\Resources\Attendances\Pages\EditAttendance;
 use App\Filament\Employee\Resources\Attendances\Pages\ListAttendances;
+use App\Filament\Employee\Resources\Attendances\Pages\ScanCheckIn;
+use App\Filament\Employee\Resources\Attendances\Pages\ScanCheckOut;
 use App\Filament\Employee\Resources\Attendances\Schemas\AttendanceForm;
 use App\Filament\Employee\Resources\Attendances\Tables\AttendancesTable;
 use App\Models\Attendance;
@@ -13,12 +15,14 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use UnitEnum;
 
 class AttendanceResource extends Resource
 {
     protected static ?string $model = Attendance::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string| BackedEnum|null $navigationIcon = Heroicon::Clock;
+    protected static string | UnitEnum | null $navigationGroup = 'Attendances';
 
     public static function form(Schema $schema): Schema
     {
@@ -40,9 +44,15 @@ class AttendanceResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => ListAttendances::route('/'),
+            // 'index' => ListAttendances::route('/'),
+            'index' => Pages\MyAttendanceDashboard::route('/'),
+            'history' => Pages\ListMyAttendances::route('/history'),
             'create' => CreateAttendance::route('/create'),
-            'edit' => EditAttendance::route('/{record}/edit'),
+            // 'edit' => EditAttendance::route('/{record}/edit'),
+            'scanCheckIn' => ScanCheckIn::route('/scan'),
+            'check-out' => ScanCheckOut::route('/check-out'),
+
+
         ];
     }
 }
