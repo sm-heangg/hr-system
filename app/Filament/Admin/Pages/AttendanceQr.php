@@ -27,7 +27,7 @@ class AttendanceQr extends Page
         $this->payload = 'attendance-main-office';
     }
 
-    // ⬇️ use method instead of static property
+   // redirect to view on blade view
     public function getView(): string
     {
         return 'filament.admin.pages.attendance-qr';
