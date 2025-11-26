@@ -35,7 +35,10 @@ class LeaveRequestsTable
                         'danger' => 'rejected',
                         'warning' => 'pending'
                     ]),
-                TextColumn::make('approved_by'),
+                TextColumn::make('approver.name')
+                    ->label('Approved by')
+                    ->toggleable()
+                    ->sortable(),
                 TextColumn::make('approved_at'),
                 TextColumn::make('rejection_reason'),
 
