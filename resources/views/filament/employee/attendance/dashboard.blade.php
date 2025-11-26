@@ -1,5 +1,6 @@
 <x-filament-panels::page>
     <div class="space-y-6">
+        <!-- start content -->
         <h2 class="text-xl font-semibold">My Attendance</h2>
 
         @php
@@ -35,5 +36,6 @@
                 </div>
             </x-filament::section>
         @endif
+        <!-- end content -->
     </div>
 </x-filament-panels::page>

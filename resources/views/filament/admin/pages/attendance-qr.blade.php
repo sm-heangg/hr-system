@@ -10,7 +10,7 @@
     // Prepare base64 SVG for download
     $qrDownload = base64_encode($qrSvg);
 @endphp
-
+ <!-- scan Qr -->
 <x-filament-panels::page>
     <div class="space-y-6">
         {{-- Show SVG QR --}}
