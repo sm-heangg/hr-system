@@ -9,7 +9,7 @@ use Filament\Resources\Pages\ListRecords;
 class ListDepartments extends ListRecords
 {
     protected static string $resource = DepartmentResource::class;
-
+    // function
     protected function getHeaderActions(): array
     {
         return [
