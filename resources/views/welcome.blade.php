@@ -1,4 +1,4 @@
-{{-- Update the welcome page --}}
+{{-- Update the welcome page from VLang --}}
 
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
