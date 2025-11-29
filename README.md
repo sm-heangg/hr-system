@@ -31,7 +31,7 @@ This project is designed for **learning**, **teaching**, and **real HR operation
 - **Livewire** (Realtime response without page reload)
 
 ### Admin Panel & Security
-- **Filament v3** (Free admin dashboard)
+- **Filament v4** (Free admin dashboard)
 - **Filament Shield** (Role & Permission for Filament)
 
 ### DevOps & Tools
