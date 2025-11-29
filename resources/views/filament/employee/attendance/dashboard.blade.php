@@ -1,3 +1,5 @@
+{{-- Dashboard for Employee Attendance Management --}}
+
 <x-filament-panels::page>
     <div class="space-y-6">
         <h2 class="text-xl font-semibold">My Attendance</h2>
