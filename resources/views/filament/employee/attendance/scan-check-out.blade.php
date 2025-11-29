@@ -1,3 +1,5 @@
+{{-- Update scan checkout --}}
+
 <x-filament-panels::page>
     <div class="space-y-4">
         <h2 class="text-lg font-semibold">

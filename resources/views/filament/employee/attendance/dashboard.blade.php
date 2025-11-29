@@ -1,4 +1,4 @@
-{{-- Dashboard for Employee Attendance Management --}}
+{{-- Update Dashboard for Employee Attendance Management --}}
 
 <x-filament-panels::page>
     <div class="space-y-6">
