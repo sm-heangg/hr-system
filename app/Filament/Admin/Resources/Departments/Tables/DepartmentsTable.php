@@ -12,6 +12,7 @@ class DepartmentsTable
 {
     public static function configure(Table $table): Table
     {
+        //department table design
         return $table
             ->columns([
                 TextColumn::make('name')
