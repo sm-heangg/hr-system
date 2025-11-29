@@ -52,3 +52,41 @@ Follow the steps below to install and run the project locally.
 ```bash
 git clone https://github.com/sm-heangg/hr-system.git
 cd hr-system
+
+✔ 2. Install PHP dependencies (Laravel)
+composer install
+
+✔ 3. Install frontend dependencies (Tailwind + Livewire)
+npm install
+npm run build   # or npm run dev
+
+✔ 4. Create .env file
+cp .env.example .env
+
+✔ 5. Configure your database in .env
+DB_DATABASE=hr_system
+DB_USERNAME=root
+DB_PASSWORD=
+
+✔ 6. Generate application key
+php artisan key:generate
+
+✔ 7. Run migrations
+php artisan migrate
+
+✔ 8. Run migrations
+
+php artisan shield:install
+php artisan shield:generate
+
+✔ 9. Create Filament admin user
+php artisan make:filament-user
+
+✔ 10. Start the development server
+php artisan serve
+
+✔ 11. Start the development server
+composer require simplesoftwareio/simple-qrcode
+
+
+
