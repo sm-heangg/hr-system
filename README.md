@@ -53,7 +53,7 @@ Follow the steps below to install and run the project locally.
 git clone https://github.com/sm-heangg/hr-system.git
 cd hr-system
 
-✔ 2. Install PHP dependencies (Laravel)
+## ✔ 2. Install PHP dependencies (Laravel)
 composer install
 
 ✔ 3. Install frontend dependencies (Tailwind + Livewire)
