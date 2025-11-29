@@ -8,62 +8,47 @@
     <img src="https://img.shields.io/github/stars/sm-heangg/hr-system?style=social" alt="Stars">
     <img src="https://img.shields.io/github/forks/sm-heangg/hr-system?style=social" alt="Forks">
     <img src="https://img.shields.io/github/license/sm-heangg/hr-system" alt="License">
-    <img src="https://img.shields.io/badge/Laravel-Framework-red" alt="Laravel">
+    <img src="https://img.shields.io/badge/Laravel-12-red" alt="Laravel v12">
 </p>
 
-# 📌 HR System
+# 📌 HR System (Open Source)
 
-A simple and customizable **Human Resource Management System** built using **Laravel** and **MySQL**.  
-This system is designed for learning, practice, and real-world HR workflow simulation — including employees, departments, attendance, leave requests, and more.
+A modern and production-ready **Human Resource Management System** built using **Laravel 12**, featuring real-time interactions, permission control, QR attendance, and a full Filament admin panel.
 
----
-
-## 🚀 Features
-
-- Employee management (add, edit, delete staff)
-- Department & Position management
-- Attendance tracking
-- Leave request & approval workflow
-- CRUD operations using Laravel MVC
-- Authentication (Login/Logout)
-- Clean & understandable Laravel project structure
+This project is designed for **learning**, **teaching**, and **real HR operations** such as employees, departments, attendance, leave requests, and more.
 
 ---
 
-## 🏗️ Tech Stack
+# 🧰 **Technology Stack**
 
-- **Backend:** Laravel (PHP)
-- **Database:** MySQL
-- **Frontend:** Blade / Bootstrap (default Laravel UI)
-- **Tools:** Composer, Artisan CLI, Laravel Migrations
+### Backend & Framework
+- **Laravel v12** (PHP framework)
+- **MySQL** (Relational database)
+- **SimpleSoftwareIO / Simple-Qr** (QR Code generator)
+
+### Frontend
+- **Tailwind CSS** (Utility-first styling)
+- **Livewire** (Realtime response without page reload)
+
+### Admin Panel & Security
+- **Filament v3** (Free admin dashboard)
+- **Filament Shield** (Role & Permission for Filament)
+
+### DevOps & Tools
+- **Git** (Version control)
+- **GitHub** (Repository hosting)
+- **Ngrok** (HTTPS public URL for testing / mobile QR scanner)
 
 ---
 
-## 📥 Installation
+# 📥 **Installation Guide (Full Setup)**
 
-Follow these steps to run the project locally:
+Follow the steps below to install and run the project locally.
+
+---
+
+## ✔ 1. Clone the repository
 
 ```bash
-# 1. Clone the repository
 git clone https://github.com/sm-heangg/hr-system.git
 cd hr-system
-
-# 2. Install dependencies
-composer install
-
-# 3. Copy environment file
-cp .env.example .env
-
-# 4. Generate app key
-php artisan key:generate
-
-# 5. Configure your database in .env
-DB_DATABASE=your_db
-DB_USERNAME=your_user
-DB_PASSWORD=your_password
-
-# 6. Run migrations
-php artisan migrate
-
-# 7. Start the server
-php artisan serve
